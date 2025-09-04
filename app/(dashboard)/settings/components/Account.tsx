@@ -3,20 +3,26 @@ import { View, Image } from "react-native";
 import { Text } from "@/components/ui/text";
 import { Button } from "@/components/ui/button";
 import { CreditCard, Bell } from "lucide-react-native";
+import { Href, useRouter } from "expo-router";
 
 export default function Account() {
+  const router = useRouter();
+
   const SettingsButton = ({
     icon,
     title,
     iconBg = "#0ea5e9",
+    route,
   }: {
     icon?: React.ReactNode;
     title: string;
     iconBg?: string;
+    route: Href;
   }) => (
     <Button
       variant="ghost"
       className="h-12 flex-row items-center justify-start px-4 rounded-xl"
+      onPress={() => router.push(route)}
     >
       {icon && (
         <View
@@ -33,7 +39,7 @@ export default function Account() {
   return (
     <View className="p-4 flex-1">
       {/* Avatar + Name + Phone */}
-      <View className="flex-row items-center gap-4">
+      <View className="flex-row items-center gap-4 mb-6">
         <Image
           source={{ uri: "https://i.pravatar.cc/150" }}
           className="h-24 w-24 rounded-full border-2 border-white"
@@ -44,16 +50,18 @@ export default function Account() {
         </View>
       </View>
 
-      {/* Buttons */}
+      {/* Buttons with navigation */}
       <SettingsButton
         icon={<CreditCard size={20} color="white" />}
         title="Payment Methods"
         iconBg="#3b82f6"
+        route="./payment"
       />
       <SettingsButton
         icon={<Bell size={20} color="white" />}
         title="Notifications"
         iconBg="#f59e0b"
+        route="./notification"
       />
     </View>
   );

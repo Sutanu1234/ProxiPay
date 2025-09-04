@@ -23,6 +23,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import OptionComponents from "./components/OptionComponents";
 import RecentTransfers from "./components/RecentTransfers";
 import { showToast } from "@/utils/ToastHelper";
+import TransactionHistory from "./components/TransactionHistory";
 
 export default function HomePage() {
   const router = useRouter();
@@ -70,7 +71,7 @@ export default function HomePage() {
 
         <Text className="text-xl font-bold text-white">ProxiPay</Text>
 
-        <Button variant="ghost" className="rounded-full bg-[#c3eefd] p-3">
+        <Button variant="ghost" className="rounded-full bg-[#c3eefd] p-3" onPress={() => router.push("./notification")}>
           <Bell size={24} color="white" />
         </Button>
       </View>
@@ -136,6 +137,9 @@ export default function HomePage() {
         </View>
         <View className="mt-6 px-4">
           <RecentTransfers />
+        </View>
+        <View className="mt-6 px-4">
+          <TransactionHistory />
         </View>
       </ScrollView>
     </LinearGradient>

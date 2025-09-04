@@ -28,6 +28,6 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    paddingBottom: 80, // leave space for BottomNavBar
+    paddingBottom: 20, // leave space for BottomNavBar
   },
 });
